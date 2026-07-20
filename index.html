@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finetunio — Stop guessing how to improve your model</title>
+  <meta name="description" content="Finetunio is AI Optimization Intelligence: the decision layer that turns intent into a ranked optimization plan across prompts, RAG, fine-tuning, tools, and guardrails — and tells you when NOT to fine-tune." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://finetunio.dev/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Finetunio — the decision layer for model behavior change" />
+  <meta property="og:description" content="Turn intent into a ranked optimization plan across prompts, RAG, fine-tuning, tools, and guardrails. Deterministic, inspectable, and honest about when not to fine-tune." />
+  <meta property="og:image" content="assets/og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Finetunio — AI Optimization Intelligence" />
+  <meta name="twitter:description" content="Stop guessing how to improve your model. Finetunio ranks the five interventions that change model behavior — and tells you when not to fine-tune." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body class="page">
+
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="#top">
+        <span class="site-header__mark" aria-hidden="true"></span>
+        <span class="site-header__name">Finetunio</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button class="site-nav__toggle" aria-expanded="false" aria-controls="site-nav-list">
+          <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <ul class="site-nav__list" id="site-nav-list">
+          <li class="site-nav__item"><a class="site-nav__link" href="#product">Product</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#decision">Decision Engine</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#loop">Evaluation Loop</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#architecture">Architecture</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#roadmap">Roadmap</a></li>
+          <li class="site-nav__item site-nav__item--cta">
+            <a class="button button--primary button--small" href="#demo">Try the decision demo</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1 · HERO -->
+    <section class="hero" id="demo">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="hero__kicker"><span class="hero__kicker-dot" aria-hidden="true"></span>AI Optimization Intelligence</p>
+          <h1 class="hero__title">Stop guessing how to improve&nbsp;your&nbsp;model.</h1>
+          <p class="hero__lede">
+            Finetunio turns intent into a ranked optimization plan across prompts, RAG,
+            fine&#8209;tuning, tools, and guardrails — with clear reasoning for what to try
+            first, and when <em>not</em> to fine-tune.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#workbench">Try the decision demo</a>
+            <a class="button button--ghost" href="#category">Read the product thesis</a>
+          </div>
+          <p class="hero__footnote">Local-first · deterministic decision engine · files as source of truth</p>
+        </div>
+
+        <div class="workbench" id="workbench" aria-label="Interactive decision demo">
+          <div class="workbench__chrome">
+            <span class="workbench__dot" aria-hidden="true"></span>
+            <span class="workbench__dot" aria-hidden="true"></span>
+            <span class="workbench__dot" aria-hidden="true"></span>
+            <span class="workbench__chrome-title">finetunio · strategy</span>
+            <span class="workbench__badge">static simulation of real engine rules</span>
+          </div>
+          <div class="workbench__body">
+            <form class="workbench__form" id="hero-form">
+              <div class="workbench__field workbench__field--wide">
+                <label class="workbench__label" for="hero-goal">Goal</label>
+                <select class="workbench__select" id="hero-goal" name="goal">
+                  <option value="hallucinations" selected>Reduce hallucinations</option>
+                  <option value="tone">Adopt a consistent voice &amp; style</option>
+                  <option value="domain">Answer from private domain knowledge</option>
+                  <option value="format">Enforce strict output format</option>
+                  <option value="instructions">Follow multi-step instructions</option>
+                  <option value="safety">Stay inside policy boundaries</option>
+                </select>
+              </div>
+              <div class="workbench__field">
+                <label class="workbench__label" for="hero-dataset">Dataset size <output class="workbench__value" id="hero-dataset-out">2,000</output></label>
+                <input class="workbench__range" type="range" id="hero-dataset" name="dataset" min="0" max="10000" step="100" value="2000" />
+              </div>
+              <div class="workbench__field">
+                <label class="workbench__label" for="hero-budget">Budget <output class="workbench__value" id="hero-budget-out">$20</output></label>
+                <input class="workbench__range" type="range" id="hero-budget" name="budget" min="0" max="100" step="1" value="20" />
+              </div>
+              <fieldset class="workbench__field workbench__field--wide workbench__risk">
+                <legend class="workbench__label">Risk tolerance</legend>
+                <div class="workbench__segments" role="radiogroup" aria-label="Risk tolerance">
+                  <label class="workbench__segment"><input type="radio" name="risk" value="low" /><span>Low</span></label>
+                  <label class="workbench__segment"><input type="radio" name="risk" value="medium" checked /><span>Medium</span></label>
+                  <label class="workbench__segment"><input type="radio" name="risk" value="high" /><span>High</span></label>
+                </div>
+              </fieldset>
+            </form>
+
+            <div class="workbench__output" aria-live="polite">
+              <div class="workbench__diagnosis" id="hero-diagnosis">
+                <span class="workbench__diagnosis-label">Diagnosis</span>
+                <span class="workbench__diagnosis-class" id="hero-class"></span>
+                <span class="workbench__diagnosis-conf" id="hero-conf"></span>
+              </div>
+              <ol class="ranking" id="hero-ranking"></ol>
+              <aside class="whynot" id="hero-whynot">
+                <h3 class="whynot__title" id="hero-whynot-title"></h3>
+                <p class="whynot__body" id="hero-whynot-body"></p>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · PROBLEM -->
+    <section class="problem section" id="product">
+      <div class="section__inner">
+        <p class="section__kicker">The problem</p>
+        <h2 class="section__title">Fine-tuning is usually the wrong first question.</h2>
+        <p class="section__lede">
+          Model behavior has five levers, but most tooling only sells one. So teams jump to
+          training jobs, guess hyperparameters, spend compute — and get unclear gains.
+        </p>
+        <div class="problem__compare">
+          <div class="problem__col problem__col--before">
+            <h3 class="problem__col-title">Without a decision layer</h3>
+            <ul class="problem__list">
+              <li class="problem__item problem__item--noise">Pick a base model on vibes</li>
+              <li class="problem__item problem__item--noise">learning_rate = 2e-4 <span class="problem__mutter">…probably?</span></li>
+              <li class="problem__item problem__item--noise">lora_rank = 16 <span class="problem__mutter">…someone said 16</span></li>
+              <li class="problem__item problem__item--noise">Burn a GPU budget on a run</li>
+              <li class="problem__item problem__item--noise">Eyeball outputs, shrug, retrain</li>
+            </ul>
+            <p class="problem__verdict problem__verdict--bad">Expensive guesswork, unclear gains</p>
+          </div>
+          <div class="problem__arrow" aria-hidden="true">→</div>
+          <div class="problem__col problem__col--after">
+            <h3 class="problem__col-title">With Finetunio</h3>
+            <ul class="problem__list">
+              <li class="problem__item problem__item--signal">State the behavior you want changed</li>
+              <li class="problem__item problem__item--signal">Engine diagnoses the problem class</li>
+              <li class="problem__item problem__item--signal">Five interventions scored &amp; ranked</li>
+              <li class="problem__item problem__item--signal">Composed plan, with tradeoffs on paper</li>
+              <li class="problem__item problem__item--signal">Fine-tune only when evidence says so</li>
+            </ul>
+            <p class="problem__verdict problem__verdict--good">Cheapest reliable path to behavior change</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · CATEGORY -->
+    <section class="category section section--tinted" id="category">
+      <div class="section__inner">
+        <p class="section__kicker">The category</p>
+        <h2 class="section__title">Training tools execute. Finetunio decides.</h2>
+        <p class="section__lede">
+          Between your business outcome and the execution layer sits a decision nobody's tooling
+          owns: <strong>which combination of interventions will actually change model behavior?</strong>
+          That layer is AI Optimization Intelligence.
+        </p>
+        <div class="stack" role="img" aria-label="Stack diagram: business outcome on top, then AI Optimization Intelligence (Finetunio), then execution and workflow tools, then training and inference infrastructure, then foundation models.">
+          <div class="stack__layer">Business outcome</div>
+          <div class="stack__layer stack__layer--finetunio">
+            <span>AI Optimization Intelligence</span>
+            <span class="stack__tag">Finetunio</span>
+          </div>
+          <div class="stack__layer stack__layer--dim">Execution &amp; workflow tools</div>
+          <div class="stack__layer stack__layer--dim">Training &amp; inference infrastructure</div>
+          <div class="stack__layer stack__layer--dim">Foundation models</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · OPTIMIZATION PLAN -->
+    <section class="plan section" id="decision">
+      <div class="section__inner">
+        <p class="section__kicker">The Optimization Plan</p>
+        <h2 class="section__title">One artifact that justifies itself.</h2>
+        <p class="section__lede">
+          The Decision Engine's output isn't a config file — it's a ranked, composed, justified
+          plan. Swap the goal and watch the reasoning change.
+        </p>
+
+        <div class="plan__switcher" role="tablist" aria-label="Choose a goal" id="plan-goals"></div>
+
+        <div class="plan__object" aria-live="polite">
+          <header class="plan__header">
+            <div class="plan__diagnosis">
+              <span class="plan__field-label">Diagnosis</span>
+              <strong class="plan__class" id="plan-class"></strong>
+              <p class="plan__reasoning" id="plan-reasoning"></p>
+            </div>
+            <dl class="plan__meta">
+              <div class="plan__meta-item"><dt>Confidence</dt><dd id="plan-conf"></dd></div>
+              <div class="plan__meta-item"><dt>Est. cost</dt><dd id="plan-cost"></dd></div>
+              <div class="plan__meta-item"><dt>Est. time</dt><dd id="plan-time"></dd></div>
+            </dl>
+          </header>
+          <ol class="plan__steps" id="plan-steps"></ol>
+          <aside class="whynot whynot--plan">
+            <h3 class="whynot__title" id="plan-whynot-title"></h3>
+            <p class="whynot__body" id="plan-whynot-body"></p>
+          </aside>
+        </div>
+        <p class="plan__disclaimer">
+          Demo plans are a static simulation mirroring the real engine's documented rules —
+          matrix scoring, risk penalty, budget hard gate, dataset-size modifier. The shipped
+          engine is deterministic and covered by 122 tests.
+        </p>
+      </div>
+    </section>
+
+    <!-- 5 · FIVE INTERVENTIONS -->
+    <section class="interventions section section--tinted" id="interventions">
+      <div class="section__inner">
+        <p class="section__kicker">The five interventions</p>
+        <h2 class="section__title">Fine-tuning is one lever. Finetunio reasons across all five.</h2>
+        <div class="interventions__grid">
+          <article class="strategy-card strategy-card--prompt">
+            <h3 class="strategy-card__title">Prompt optimization</h3>
+            <p class="strategy-card__row"><span class="strategy-card__when">Works when</span> behavior is close and needs steering — tone, structure, emphasis.</p>
+            <p class="strategy-card__row"><span class="strategy-card__fails">Fails when</span> the model lacks knowledge or the change must survive adversarial input.</p>
+            <p class="strategy-card__row"><span class="strategy-card__evidence">Engine looks for</span> failure patterns that vary with instruction wording.</p>
+          </article>
+          <article class="strategy-card strategy-card--rag">
+            <h3 class="strategy-card__title">Retrieval / RAG</h3>
+            <p class="strategy-card__row"><span class="strategy-card__when">Works when</span> the model is missing facts it could quote from your corpus.</p>
+            <p class="strategy-card__row"><span class="strategy-card__fails">Fails when</span> the problem is style or procedure, not knowledge.</p>
+            <p class="strategy-card__row"><span class="strategy-card__evidence">Engine looks for</span> unsupported claims and answers that go stale with your data.</p>
+          </article>
+          <article class="strategy-card strategy-card--finetune">
+            <h3 class="strategy-card__title">Fine-tuning</h3>
+            <p class="strategy-card__row"><span class="strategy-card__when">Works when</span> a consistent behavioral change has enough clean examples behind it.</p>
+            <p class="strategy-card__row"><span class="strategy-card__fails">Fails when</span> data is thin, budget is tight, or the change is really missing context.</p>
+            <p class="strategy-card__row"><span class="strategy-card__evidence">Engine looks for</span> dataset size, budget floor, and risk tolerance before it will rank this high.</p>
+          </article>
+          <article class="strategy-card strategy-card--tools">
+            <h3 class="strategy-card__title">Tool use / MCP skills</h3>
+            <p class="strategy-card__row"><span class="strategy-card__when">Works when</span> the task decomposes into checkable steps or external actions.</p>
+            <p class="strategy-card__row"><span class="strategy-card__fails">Fails when</span> the behavior is judgment inside a single response.</p>
+            <p class="strategy-card__row"><span class="strategy-card__evidence">Engine looks for</span> multi-step failures where intermediate state gets lost.</p>
+          </article>
+          <article class="strategy-card strategy-card--guardrails">
+            <h3 class="strategy-card__title">Guardrails / post-processing</h3>
+            <p class="strategy-card__row"><span class="strategy-card__when">Works when</span> violations are detectable — schemas, policies, formats.</p>
+            <p class="strategy-card__row"><span class="strategy-card__fails">Fails when</span> "wrong" can't be checked deterministically.</p>
+            <p class="strategy-card__row"><span class="strategy-card__evidence">Engine looks for</span> output-contract failures where validation beats probability.</p>
+          </article>
+          <article class="strategy-card strategy-card--compose">
+            <h3 class="strategy-card__title">…and it composes them</h3>
+            <p class="strategy-card__body">Real plans are rarely one lever. The engine returns up to four steps, ordered by fit score — often RAG first, prompt second, fine-tuning as a justified escalation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · INTENT-FIRST UX -->
+    <section class="intent section" id="intent">
+      <div class="section__inner section__inner--narrow">
+        <p class="section__kicker">Intent-first</p>
+        <h2 class="section__title">You describe behavior. The engine handles the rest.</h2>
+        <p class="section__lede">
+          Hyperparameters are an implementation detail of one intervention. Finetunio asks the
+          questions the person who owns the outcome can actually answer.
+        </p>
+        <dl class="translation">
+          <div class="translation__pair">
+            <dt class="translation__tech">learning_rate</dt>
+            <dd class="translation__human">How strongly should the model adapt?</dd>
+          </div>
+          <div class="translation__pair">
+            <dt class="translation__tech">lora_rank</dt>
+            <dd class="translation__human">How much consistency vs. flexibility do you need?</dd>
+          </div>
+          <div class="translation__pair">
+            <dt class="translation__tech">epochs</dt>
+            <dd class="translation__human">How much risk is acceptable?</dd>
+          </div>
+          <div class="translation__pair">
+            <dt class="translation__tech">eval_metric</dt>
+            <dd class="translation__human">What behavior should improve?</dd>
+          </div>
+        </dl>
+        <p class="intent__note">ML-engineer optional, not ML-engineer hostile: every simple answer expands into the full technical detail one layer down.</p>
+      </div>
+    </section>
+
+    <!-- 7 · LIFECYCLE -->
+    <section class="lifecycle section section--tinted" id="roadmap">
+      <div class="section__inner">
+        <p class="section__kicker">The product</p>
+        <h2 class="section__title">Seven stages, one spine — and an honest status for each.</h2>
+        <p class="section__lede">
+          Finetunio v0.1 is a working local workbench: you can walk a project from intent to
+          deployment today. Here's exactly what's real, what's simulated, and what's next.
+        </p>
+        <ol class="rail">
+          <li class="rail__stage rail__stage--built">
+            <span class="rail__status">Built</span>
+            <h3 class="rail__name">Intent</h3>
+            <p class="rail__desc">Goals, risk, budget, time — captured as structured intent.</p>
+          </li>
+          <li class="rail__stage rail__stage--built">
+            <span class="rail__status">Built</span>
+            <h3 class="rail__name">Strategy</h3>
+            <p class="rail__desc">Decision Engine: diagnosis, ranked plan, whyNotFineTune.</p>
+          </li>
+          <li class="rail__stage rail__stage--built">
+            <span class="rail__status">Built</span>
+            <h3 class="rail__name">Datasets</h3>
+            <p class="rail__desc">CRUD, threshold warnings, quality badges.</p>
+          </li>
+          <li class="rail__stage rail__stage--partial">
+            <span class="rail__status">Built · linear</span>
+            <h3 class="rail__name">Workflow</h3>
+            <p class="rail__desc">Strategy, model &amp; adapter selection. Multi-branch canvas is next.</p>
+          </li>
+          <li class="rail__stage rail__stage--simulated">
+            <span class="rail__status">Simulated today</span>
+            <h3 class="rail__name">Runs</h3>
+            <p class="rail__desc">Run tracking is real; training execution is simulated in v0.1.</p>
+          </li>
+          <li class="rail__stage rail__stage--next">
+            <span class="rail__status">Coming next</span>
+            <h3 class="rail__name">Evaluation</h3>
+            <p class="rail__desc">Leaderboard &amp; charts today; evaluation intelligence is Phase&nbsp;1.</p>
+          </li>
+          <li class="rail__stage rail__stage--built">
+            <span class="rail__status">Built</span>
+            <h3 class="rail__name">Deployment</h3>
+            <p class="rail__desc">Deployment records with full status lifecycle; remote targets later.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 8 · TRUST / ARCHITECTURE -->
+    <section class="trust section section--light" id="architecture">
+      <div class="section__inner">
+        <p class="section__kicker">Architecture</p>
+        <h2 class="section__title">Inspectable. Local-first. Built for trust.</h2>
+        <p class="section__lede">
+          Advice you can't audit is marketing. The decision layer is deterministic, and the whole
+          system is built so you can check its work.
+        </p>
+        <div class="trust__grid">
+          <div class="trust-fact"><strong class="trust-fact__head">Rules-based engine</strong><p>Matrix scoring across goal → problem class → intervention. No LLM in the critical decision path.</p></div>
+          <div class="trust-fact"><strong class="trust-fact__head">122 / 122 tests</strong><p>The Decision Engine is fully covered and deterministic: same intent in, same plan out.</p></div>
+          <div class="trust-fact"><strong class="trust-fact__head">Files as source of truth</strong><p>Every entity is Markdown + YAML on your disk. Readable, diffable, yours.</p></div>
+          <div class="trust-fact"><strong class="trust-fact__head">SQLite as rebuildable index</strong><p>Delete the database, restart, get identical state. The index is derived, never authoritative.</p></div>
+          <div class="trust-fact"><strong class="trust-fact__head">Archive, never delete</strong><p>Atomic temp-then-rename writes; nothing is destroyed, everything has history.</p></div>
+          <div class="trust-fact"><strong class="trust-fact__head">Headless core</strong><p>Fastify 5 API with a Vue 3 client as one consumer — the core is client-agnostic.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · FEEDBACK LOOP -->
+    <section class="loop section" id="loop">
+      <div class="section__inner section__inner--narrow">
+        <p class="section__kicker">Where this goes · roadmap</p>
+        <h2 class="section__title">The goal isn't one good training run. It's a system that learns.</h2>
+        <p class="section__lede">
+          The next phase closes the loop: evaluation results feed back into diagnosis, the plan
+          revises itself, and every project builds optimization memory.
+        </p>
+        <div class="loop__diagram" role="img" aria-label="Cycle diagram: Plan, then Execute, then Evaluate, then Diagnose, then Revise Plan, returning to Plan.">
+          <span class="loop__node">Plan</span>
+          <span class="loop__arrow" aria-hidden="true">→</span>
+          <span class="loop__node">Execute</span>
+          <span class="loop__arrow" aria-hidden="true">→</span>
+          <span class="loop__node">Evaluate</span>
+          <span class="loop__arrow" aria-hidden="true">→</span>
+          <span class="loop__node">Diagnose</span>
+          <span class="loop__arrow" aria-hidden="true">→</span>
+          <span class="loop__node loop__node--accent">Revise plan</span>
+          <span class="loop__arrow loop__arrow--return" aria-hidden="true">⟲</span>
+        </div>
+        <p class="loop__status">Status: in progress — evaluation intelligence is Phase 1 of the reconciled roadmap.</p>
+      </div>
+    </section>
+
+    <!-- 10 · FINAL CTA -->
+    <section class="cta section">
+      <div class="cta__inner">
+        <h2 class="cta__title">The thesis is simple: decide first, then spend compute.</h2>
+        <p class="cta__lede">
+          Finetunio is early — a v0.1 local workbench with a real decision engine at its core.
+          If you own model quality and are tired of guessing, follow along.
+        </p>
+        <div class="cta__actions">
+          <a class="button button--primary" href="#demo">Try the decision demo</a>
+          <a class="button button--ghost" href="#category">Read the thesis</a>
+        </div>
+        <p class="cta__note">Local alpha is invite-only while the evaluation loop lands.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__brand">Finetunio · AI Optimization Intelligence</p>
+      <p class="site-footer__line">Deterministic decisions. Honest status. Files you own.</p>
+      <p class="site-footer__legal">© 2026 Finetunio. Product status labels on this page reflect the v0.1 build honestly: built, simulated, or planned.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/demo.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

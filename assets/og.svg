@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Inter, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fdcff"/>
+      <stop offset="1" stop-color="#4ef2a3"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.25" cy="0.2" r="0.8">
+      <stop offset="0" stop-color="#3fdcff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#060810" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#060810"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <text x="80" y="120" fill="#3fdcff" font-size="24" letter-spacing="4" font-family="'JetBrains Mono', monospace">AI OPTIMIZATION INTELLIGENCE</text>
+  <text x="80" y="215" fill="#e9eef7" font-size="68" font-weight="800">Stop guessing how to</text>
+  <text x="80" y="295" fill="#e9eef7" font-size="68" font-weight="800">improve your model.</text>
+  <text x="80" y="370" fill="#97a3ba" font-size="28">Finetunio ranks the five interventions that change model behavior —</text>
+  <text x="80" y="410" fill="#97a3ba" font-size="28">and tells you when not to fine-tune.</text>
+  <g font-family="'JetBrains Mono', monospace" font-size="22">
+    <text x="80" y="500" fill="#6b7690">1</text><text x="110" y="500" fill="#4ef2a3">RAG augmentation</text>
+    <rect x="420" y="484" width="460" height="12" rx="6" fill="#1b2236"/><rect x="420" y="484" width="404" height="12" rx="6" fill="url(#bar)"/>
+    <text x="920" y="500" fill="#97a3ba">92</text>
+    <text x="80" y="545" fill="#6b7690">2</text><text x="110" y="545" fill="#e9eef7">Prompt optimization</text>
+    <rect x="420" y="529" width="460" height="12" rx="6" fill="#1b2236"/><rect x="420" y="529" width="349" height="12" rx="6" fill="url(#bar)" opacity="0.75"/>
+    <text x="920" y="545" fill="#97a3ba">76</text>
+    <text x="80" y="590" fill="#6b7690">3</text><text x="110" y="590" fill="#97a3ba">Fine-tuning (QLoRA)</text>
+    <rect x="420" y="574" width="460" height="12" rx="6" fill="#1b2236"/><rect x="420" y="574" width="220" height="12" rx="6" fill="url(#bar)" opacity="0.45"/>
+    <text x="920" y="590" fill="#97a3ba">48</text>
+  </g>
+  <text x="1120" y="120" fill="#e9eef7" font-size="34" font-weight="700" text-anchor="end">Finetunio</text>
+</svg>
