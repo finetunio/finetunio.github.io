@@ -7,7 +7,7 @@
 
 - [ ] **Decide release posture + final CTA destination.** Current copy assumes private/local alpha ("invite-only"); "Join the local alpha" CTA was intentionally left off until there is a real destination (waitlist form, repo link, or alpha instructions). Kickoff plan "Content Decisions Needed" #1 and #4.
 - [ ] **OG image as PNG.** `assets/og.svg` exists and is referenced, but most platforms (Slack, X, LinkedIn) ignore SVG `og:image`. Render a 1200×630 PNG from it and switch the meta tag.
-- [ ] **Canonical URL / domain.** `https://finetunio.dev/` in `index.html` is a placeholder; no domain is registered. Fix `canonical` + `og:url` before deploy.
+- [x] **Canonical URL / domain.** Done 2026-09-22 — `canonical` + `og:url` now `https://finetunio.com/`, `og:image` made absolute. Site is **live** at `https://finetunio.com/`, served by GitHub Pages from `finetunio/finetunio.github.io` (org user site, `main` branch root, `CNAME` + `.nojekyll` in repo). DNS at DNSimple: apex → 4 GitHub A records, `www` → CNAME `finetunio.github.io`, Enforce HTTPS on. Deploys = `git push` to `main`.
 - [ ] **Lighthouse pass** against kickoff targets (Perf ≥ 90, A11y ≥ 95, SEO ≥ 90) in real Chrome; site is static and font-light so risk is low, but it has not been formally measured.
 - [ ] **Cross-browser QA** (Safari/Firefox; `backdrop-filter` already removed from the sticky header).
 
