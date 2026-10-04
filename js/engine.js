@@ -5,7 +5,7 @@
  * documented v0.1 scoring mechanics (rules-based matrix scoring, risk penalty,
  * budget hard gate, dataset-size modifier, whyNotFineTune reasoning) so the
  * marketing demo behaves like real engine output without a backend.
- * Sources: finetunio-workspace/01-reference/06-as-built-state.md,
+ * Sources: finetunio-workspace/01-foundations/07-as-built-state.md,
  *          finetunio-workspace/02-dev-planning/v1-readiness-assessment-2026-07-18.md
  */
 

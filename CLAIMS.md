@@ -2,7 +2,7 @@
 
 Every product claim on the homepage, its status, and its source. Statuses: **built** (safe to state as fact), **in-progress** (must be labeled roadmap/next), **future** (vision only), **avoid** (never claim).
 
-Sources: `01-reference/06-as-built-state.md` (AB), `02-dev-planning/v1-readiness-assessment-2026-07-18.md` (VR), `02-dev-planning/website-kickoff-plan-2026-07-19.md` (KP).
+Sources: `01-foundations/06-as-built-state.md` (AB), `02-dev-planning/v1-readiness-assessment-2026-07-18.md` (VR), `02-dev-planning/website-kickoff-plan-2026-07-19.md` (KP).
 
 | Claim on site | Status | Source | Notes |
 |---|---|---|---|
