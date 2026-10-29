@@ -1,5 +1,7 @@
 # Finetunio Website
 
+For current state and next actions, see [HANDOFF.md](HANDOFF.md).
+
 Static marketing site for Finetunio — **AI Optimization Intelligence: the decision layer for model behavior change**.
 
 Built per `projects/workspaces/finetunio-workspace/02-dev-planning/website-kickoff-plan-2026-07-19.md`.
