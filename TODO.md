@@ -1,6 +1,6 @@
 # TODO — finetunio-website
 
-> Source of truth for this app's backlog. Mirror one-liners in the sandbox root `TODO.md` (By project).
+> Source of truth for this app's backlog. Summarized in the global `TODO.md` (one short section per repo, D-021).
 > Built 2026-07-19 per `finetunio-workspace/02-dev-planning/website-kickoff-plan-2026-07-19.md`.
 
 ## Launch blockers (Week 4 scope)
